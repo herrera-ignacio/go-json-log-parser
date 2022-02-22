@@ -4,7 +4,6 @@ package parser
 import (
 	"encoding/json"
 	"fmt"
-	"os"
 	"regexp"
 )
 
@@ -15,7 +14,7 @@ func parseJson(text string) interface{} {
 	err := json.Unmarshal([]byte(text), &res)
 	if err != nil {
 		fmt.Println(err)
-		os.Exit(1)
+		return nil
 	}
 
 	return res
@@ -24,11 +23,12 @@ func parseJson(text string) interface{} {
 // Returns RegEx to identify valid JSON in a string.
 // It will detect JSON with nested objects up to "depth" level.
 func getJsonRegex(depth int) string {
+	jsonRegexBase := "{(?:[^{}]|(?R))*}"
 	jsonRegex := "{(?:[^{}]|(?R))*}"
 	r := regexp.MustCompile("\\(\\?R\\)")
 
 	for i := 0; i < depth; i++ {
-		jsonRegex = r.ReplaceAllString(jsonRegex, "(?:" + jsonRegex + ")")
+		jsonRegex = r.ReplaceAllString(jsonRegex, "(?:"+jsonRegexBase+")")
 	}
 
 	return r.ReplaceAllString(jsonRegex, "")
