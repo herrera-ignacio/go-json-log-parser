@@ -1,3 +1,3 @@
-module github.com/herrera-ignacio/go-json-log-parser
+module logparser
 
 go 1.17

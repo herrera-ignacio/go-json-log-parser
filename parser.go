@@ -34,8 +34,8 @@ func getJsonRegex(depth int) string {
 	return r.ReplaceAllString(jsonRegex, "")
 }
 
-// Search a valid JSON in a given string
-func getAllJSONStrings(text string) []string {
+// GetAllJSONStrings Search a valid JSON in a given string
+func GetAllJSONStrings(text string) []string {
 	r, _ := regexp.Compile(getJsonRegex(0))
 	return r.FindAllString(text, -1)
 }

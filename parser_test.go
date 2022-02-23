@@ -103,7 +103,7 @@ func Test_getAllJSONStrings(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := getAllJSONStrings(tt.input); !reflect.DeepEqual(got, tt.want) {
+			if got := GetAllJSONStrings(tt.input); !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("getAllJSONStrings() = %v, want %v", got, tt.want)
 			}
 		})
