@@ -7,10 +7,10 @@ import (
 )
 
 func main() {
-	data, err := os.ReadFile("./input.txt")
+	data, err := os.ReadFile("./log.txt")
 
 	if err != nil {
-		fmt.Println("You need to provide an 'input.txt' file")
+		fmt.Println("You need to provide an 'log.txt' file")
 	}
 
 	fmt.Println("JSONs:")

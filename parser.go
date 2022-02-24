@@ -1,5 +1,8 @@
-// Package parser: given a string return a list of JSON objects.
 package parser
+
+/**
+Package parser: given a string return a list of JSON objects.
+*/
 
 import (
 	"encoding/json"
@@ -7,8 +10,8 @@ import (
 	"regexp"
 )
 
-// Parse a string as JSON if valid format or return nil.
-func parseJson(text string) interface{} {
+// ParseJson Parse a string as JSON if valid format or return nil.
+func ParseJson(text string) interface{} {
 	var res interface{}
 
 	err := json.Unmarshal([]byte(text), &res)
